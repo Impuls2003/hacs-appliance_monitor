@@ -93,7 +93,8 @@
                     "post_cycle_enabled": "Detect post-cycle phase",
                     "post_cycle_window": "Post-cycle window (s)",
                     "finished_power_threshold": "Finished power threshold (W)",
-                    "post_cycle_power_threshold": "Post-cycle power threshold (W)"
+                    "post_cycle_power_threshold": "Post-cycle power threshold (W)",
+                    "auto_idle": "Automatically return to Idle after cycle"
                 },
                 "data_description": {
                     "start_threshold": "Power above this level signals the appliance has started. Starting is judged on the live reading, so a cycle is picked up immediately.",
@@ -102,7 +103,8 @@
                     "post_cycle_enabled": "Enable for appliances that keep drawing power after the programme ends — anti-crease tumbling, drying, cooling. Splits the end of a cycle into two states: the programme being done, and the appliance going quiet afterwards. Without it, both are reported as one 'finished'.",
                     "post_cycle_window": "Sliding window for the post-cycle average. It must be long enough that the working phase never looks this quiet, so appliances that draw continuously while working can use a much shorter one.",
                     "finished_power_threshold": "The cycle counts as finished once the appliance averages less than this much power across the window. This threshold discriminates: put it in the gap between what the appliance draws while idling after the programme and what it draws in standby, clear of the spikes of both. A window of 0 compares each reading as it arrives instead.",
-                    "post_cycle_power_threshold": "The programme counts as done once the appliance averages less than this much power across the post-cycle window. Must sit above the appliance's post-cycle draw and below its quietest working phase — enable the tuning sensors to read both bands off one graph and pick a value between them."
+                    "post_cycle_power_threshold": "The programme counts as done once the appliance averages less than this much power across the post-cycle window. Must sit above the appliance's post-cycle draw and below its quietest working phase — enable the tuning sensors to read both bands off one graph and pick a value between them.",
+                    "auto_idle": "Automatically return to Idle after a cycle is confirmed finished. The cycle count and last-cycle metrics are preserved."
                 }
             },
             "confirm_non_power": {
@@ -129,7 +131,8 @@
                     "post_cycle_enabled": "Detect post-cycle phase",
                     "post_cycle_window": "Post-cycle window (s)",
                     "finished_power_threshold": "Finished power threshold (W)",
-                    "post_cycle_power_threshold": "Post-cycle power threshold (W)"
+                    "post_cycle_power_threshold": "Post-cycle power threshold (W)",
+                    "auto_idle": "Automatically return to Idle after cycle"
                 },
                 "data_description": {
                     "start_threshold": "Power above this level signals the appliance has started. Starting is judged on the live reading, so a cycle is picked up immediately.",
@@ -138,7 +141,8 @@
                     "post_cycle_enabled": "Enable for appliances that keep drawing power after the programme ends — anti-crease tumbling, drying, cooling. Splits the end of a cycle into two states: the programme being done, and the appliance going quiet afterwards. Without it, both are reported as one 'finished'.",
                     "post_cycle_window": "Sliding window for the post-cycle average. It must be long enough that the working phase never looks this quiet, so appliances that draw continuously while working can use a much shorter one.",
                     "finished_power_threshold": "The cycle counts as finished once the appliance averages less than this much power across the window. This threshold discriminates: put it in the gap between what the appliance draws while idling after the programme and what it draws in standby, clear of the spikes of both. A window of 0 compares each reading as it arrives instead.",
-                    "post_cycle_power_threshold": "The programme counts as done once the appliance averages less than this much power across the post-cycle window. Must sit above the appliance's post-cycle draw and below its quietest working phase — enable the tuning sensors to read both bands off one graph and pick a value between them."
+                    "post_cycle_power_threshold": "The programme counts as done once the appliance averages less than this much power across the post-cycle window. Must sit above the appliance's post-cycle draw and below its quietest working phase — enable the tuning sensors to read both bands off one graph and pick a value between them.",
+                    "auto_idle": "Automatically return to Idle after a cycle is confirmed finished. The cycle count and last-cycle metrics are preserved."
                 }
             }
         }

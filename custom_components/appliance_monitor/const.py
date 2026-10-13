@@ -19,6 +19,9 @@ CONF_POST_CYCLE_POWER_THRESHOLD = "post_cycle_power_threshold"
 CONF_IDLE_THRESHOLD = "idle_threshold"
 CONF_IDLE_TIMEOUT = "idle_timeout"
 
+# Automatic transition to the IDLE state after the cycle completes.
+CONF_AUTO_IDLE = "auto_idle"
+
 DEFAULT_START_THRESHOLD: int = 10
 DEFAULT_START_DELAY: int = 0
 # 5 min is the shortest window that separates a washing machine's mid-cycle soak
@@ -31,6 +34,8 @@ DEFAULT_POST_CYCLE_POWER_THRESHOLD: float = 32.4
 
 DEFAULT_IDLE_THRESHOLD: int = 3
 DEFAULT_IDLE_TIMEOUT: int = 30
+
+DEFAULT_AUTO_IDLE: bool = False
 
 # Tuning sensors: average power over a fixed window, reported on every reading no
 # matter what state the appliance is in. Spread across the range worth comparing

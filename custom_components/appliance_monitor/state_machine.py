@@ -80,6 +80,7 @@ class ApplianceStateMachine:
         post_cycle_enabled: bool = False,
         post_cycle_window_seconds: float = 0,
         post_cycle_power_threshold_w: float = 0,
+        auto_idle: bool = False,
         observed_windows_seconds: Sequence[float] = (),
     ) -> None:
         """
@@ -95,6 +96,7 @@ class ApplianceStateMachine:
         self._post_cycle_enabled = post_cycle_enabled
         self._post_cycle_window_seconds = post_cycle_window_seconds
         self._post_cycle_power_threshold_w = post_cycle_power_threshold_w
+        self._auto_idle = auto_idle
         self._observed_windows_seconds = tuple(observed_windows_seconds)
         self._state: ApplianceState = ApplianceState.IDLE
         self._state_before_disconnect: ApplianceState = ApplianceState.IDLE
@@ -303,6 +305,8 @@ class ApplianceStateMachine:
             self._finished_power_threshold_w,
         ):
             self._end_cycle(ApplianceState.FINISHED)
+            if self._auto_idle:
+                self._state = ApplianceState.IDLE
 
     def _handle_post_cycle(self) -> None:
         # FINISHED is the only way out. A new cycle cannot start from here:
@@ -316,6 +320,8 @@ class ApplianceStateMachine:
             self._finished_power_threshold_w,
         ):
             self._state = ApplianceState.FINISHED
+            if self._auto_idle:
+                self._state = ApplianceState.IDLE
 
     _handle_finished = (
         _handle_idle  # FINISHED handles the start spike exactly like IDLE

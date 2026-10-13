@@ -19,6 +19,7 @@ from .const import (
     CONF_POWER_SENSOR,
     CONF_START_DELAY,
     CONF_START_THRESHOLD,
+    CONF_AUTO_IDLE,
     DEFAULT_FINISHED_POWER_THRESHOLD,
     DEFAULT_FINISHED_WINDOW,
     DEFAULT_POST_CYCLE_ENABLED,
@@ -26,6 +27,7 @@ from .const import (
     DEFAULT_POST_CYCLE_WINDOW,
     DEFAULT_START_DELAY,
     DEFAULT_START_THRESHOLD,
+    DEFAULT_AUTO_IDLE,
     DOMAIN,
 )
 
@@ -114,6 +116,10 @@ def _threshold_schema(defaults: dict[str, Any]) -> vol.Schema:
                     DEFAULT_POST_CYCLE_POWER_THRESHOLD,
                 ),
             ): _power_selector(),
+            vol.Optional(
+                CONF_AUTO_IDLE,
+                default=defaults.get(CONF_AUTO_IDLE, DEFAULT_AUTO_IDLE),
+            ): selector.BooleanSelector(),
         }
     )
 

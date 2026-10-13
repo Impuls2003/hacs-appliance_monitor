@@ -18,12 +18,14 @@ from .const import (
     CONF_POWER_SENSOR,
     CONF_START_DELAY,
     CONF_START_THRESHOLD,
+    CONF_AUTO_IDLE,
     DEFAULT_FINISHED_POWER_THRESHOLD,
     DEFAULT_FINISHED_WINDOW,
     DEFAULT_POST_CYCLE_ENABLED,
     DEFAULT_POST_CYCLE_POWER_THRESHOLD,
     DEFAULT_POST_CYCLE_WINDOW,
     DEFAULT_START_DELAY,
+    DEFAULT_AUTO_IDLE,
     DOMAIN,
     LOGGER,
     TRIGGER_COMMAND,
@@ -97,6 +99,7 @@ class ApplianceMonitorCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             post_cycle_power_threshold_w=self._conf(
                 CONF_POST_CYCLE_POWER_THRESHOLD, DEFAULT_POST_CYCLE_POWER_THRESHOLD
             ),
+            auto_idle=self._conf(CONF_AUTO_IDLE, DEFAULT_AUTO_IDLE),
             observed_windows_seconds=[width for _, width in TUNING_FIXED_WINDOWS],
         )
         # Set by the source-change listener; every other refresh is the poll.
